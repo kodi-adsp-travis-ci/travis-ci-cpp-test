@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
-project(Travis-CI-Test)
+project(TravisCITest)
 
-add_executable(travis-ci-test src/main.cpp)
+add_executable(TravisCITest main.cpp)
 
-enable_testing()
-add_test(Travis-CI-Test travis-ci-test)
+install(TARGETS TravisCITest DESTINATION bin)
