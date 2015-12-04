@@ -1,3 +1,28 @@
-version: 1.0.{build}
-build:
-  verbosity: minimal
+environment:
+  matrix:
+    - GENERATOR: "Visual Studio 12"
+      CONFIG: Debug
+
+    - GENERATOR: "Visual Studio 12"
+      CONFIG: Release
+
+build_script:
+  - cmake "-G%GENERATOR%" -H. -B_builds
+  - cmake --build _builds --config "%CONFIG%"
+
+test_script:
+  - ps: cd _builds
+  - ctest -VV -C "%CONFIG%"
+  
+deploy:
+  release: myproduct-v$(appveyor_build_version)
+  description: 'Release description'
+  provider: GitHub
+  auth_token:
+    secure: G2wXH4E4jgi6ykt7BLKJsZ5WvBxQ4kjIwK4YeCf/gmEYBiTqpNjctkd4XotPsKq6 # your encrypted token from GitHub
+  artifact: /.*\.nupkg/            # upload all NuGet packages to release assets
+  draft: false
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
+    appveyor_repo_tag: true        # deploy on tag push only
