@@ -37,8 +37,8 @@ artifacts:
 
  
 deploy:
-  release: travis-ci-cpp-test_%CONFIG%-v$(appveyor_build_version)
-  description: 'travis-ci-cpp-test_%CONFIG%'
+  release: travis-ci-cpp-test-v$(appveyor_build_version)
+  description: 'travis-ci-cpp-test'
   provider: GitHub
   auth_token:
     secure: G2wXH4E4jgi6ykt7BLKJsZ5WvBxQ4kjIwK4YeCf/gmEYBiTqpNjctkd4XotPsKq6 # your encrypted token from GitHub
