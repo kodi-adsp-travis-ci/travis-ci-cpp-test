@@ -1,5 +1,9 @@
 language: cpp
 
+os:
+  - linux
+  - osx
+
 compiler:  
     - gcc
     - clang
@@ -10,3 +14,13 @@ before_script:
     - cmake ..
 
 script: make  
+
+deploy:
+    - skip_cleanup: true
+    - provider: releases
+    - api_key: "GITHUB OAUTH TOKEN"
+    - file: "FILE TO UPLOAD"
+    - skip_cleanup: true
+    - on:
+    - tags: true
+  
