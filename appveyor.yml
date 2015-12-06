@@ -33,8 +33,9 @@ before_deploy:
 
   
 artifacts:
-  - path: travis-ci-cpp-test_%CONFIG%.zip
-    name: travis-ci-cpp-test
+  - name: travis-ci-cpp-test
+    path: 'travis-ci-cpp-test_%CONFIG%.zip'
+    
 
  
 deploy:
@@ -47,6 +48,6 @@ deploy:
   draft: false
   prerelease: false
   on:
-    appveyor_repo_tag: true        # deploy on tag push only
-    #branch: %APPVEYOR_REPO_TAG_NAME%       # release from master branch only
+    appveyor_repo_tag: true           # deploy on tag push only
+    branch: $(appveyor_repo_tag_name)  # release from master branch only
 
