@@ -1,5 +1,9 @@
 version: 1.0.{build}
 
+branches:
+    only:
+      - master
+
 install:
   - ps: wget https://s3.amazonaws.com/biibinaries/thirdparty/cmake-3.0.2-win32-x86.zip -OutFile cmake.zip
   - cmd: echo "Unzipping cmake..."
@@ -33,8 +37,8 @@ before_deploy:
 
   
 artifacts:
-  - name: mainApp
-    path: 'travis-ci-cpp-test_%CONFIG%.zip'
+  #- name: mainApp
+  - path: travis-ci-cpp-test.zip
     
 
  
@@ -44,7 +48,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: G2wXH4E4jgi6ykt7BLKJsZ5WvBxQ4kjIwK4YeCf/gmEYBiTqpNjctkd4XotPsKq6 # your encrypted token from GitHub
-  artifact: *.zip            # upload artifact
+  artifact: travis-ci-cpp-test.zip            # upload artifact
   draft: false
   prerelease: false
   on:
