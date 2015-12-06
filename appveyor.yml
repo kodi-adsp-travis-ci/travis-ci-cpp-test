@@ -29,7 +29,7 @@ before_deploy:
   - mkdir travis-ci-cpp-test
   - xcopy _builds\%CONFIG%\TravisCITest.exe travis-ci-cpp-test
   
-  - 7z a travis-ci-cpp-test.zip travis-ci-cpp-test\*.*
+  - 7z a travis-ci-cpp-test_%CONFIG%.zip travis-ci-cpp-test\*.*
 
   
 artifacts:
