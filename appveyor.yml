@@ -34,6 +34,7 @@ before_deploy:
   
 artifacts:
   - path: travis-ci-cpp-test_%CONFIG%.zip
+    name: travis-ci-cpp-test
 
  
 deploy:
@@ -42,7 +43,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: G2wXH4E4jgi6ykt7BLKJsZ5WvBxQ4kjIwK4YeCf/gmEYBiTqpNjctkd4XotPsKq6 # your encrypted token from GitHub
-  artifact: travis-ci-cpp-test_%CONFIG%.zip            # upload all NuGet packages to release assets
+  artifact: travis-ci-cpp-test            # upload artifact
   draft: false
   prerelease: false
   on:
