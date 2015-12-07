@@ -30,10 +30,12 @@ test_script:
   - ps: cd ..
 
 after_build:
+  - ECHO ON
   - mkdir travis-ci-cpp-test
   - xcopy _builds\%CONFIG%\TravisCITest.exe travis-ci-cpp-test
   
   - 7z a travis-ci-cpp-test_%CONFIG%.zip travis-ci-cpp-test\*.*
+  - dir
 
 artifacts:
   - path: travis-ci-cpp-test_%CONFIG%.zip
