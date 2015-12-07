@@ -29,7 +29,7 @@ test_script:
   - ctest -VV -C "%CONFIG%"
   - ps: cd ..
 
-before_deploy:
+after_build:
   - mkdir travis-ci-cpp-test
   - xcopy _builds\%CONFIG%\TravisCITest.exe travis-ci-cpp-test
   
