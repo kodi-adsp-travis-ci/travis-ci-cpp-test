@@ -34,13 +34,7 @@ after_build:
   - xcopy _builds\%CONFIG%\TravisCITest.exe travis-ci-cpp-test
   
   - 7z a travis-ci-cpp-test_%CONFIG%.zip travis-ci-cpp-test\*.*
-  appveyor PushArtifact travis-ci-cpp-test_%CONFIG%.zip -DeploymentName mainApp
-
-  
-#artifacts:
-  #- name: mainApp
-  #- path: travis-ci-cpp-test.zip
-    
+  appveyor PushArtifact travis-ci-cpp-test_%CONFIG%.zip -DeploymentName mainApp  
 
  
 deploy:
